@@ -1,0 +1,171 @@
+{
+  "address": "BvuNWwf599hrxzQ5YNfAn2j2UhGcb2qkjYMzGakwqxKL",
+  "metadata": {
+    "name": "anchor_project",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize_quiz_state",
+      "discriminator": [
+        79,
+        12,
+        181,
+        148,
+        36,
+        145,
+        47,
+        113
+      ],
+      "accounts": [
+        {
+          "name": "quiz_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  105,
+                  122,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "submit_answers",
+      "discriminator": [
+        142,
+        178,
+        58,
+        248,
+        113,
+        129,
+        119,
+        142
+      ],
+      "accounts": [
+        {
+          "name": "quiz_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  105,
+                  122,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "relations": [
+            "quiz_state"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "user_answers",
+          "type": "bytes"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "QuizState",
+      "discriminator": [
+        222,
+        255,
+        111,
+        89,
+        226,
+        46,
+        27,
+        9
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "QuizAlreadyCompleted",
+      "msg": "Quiz has already been completed"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidAnswersLength",
+      "msg": "Invalid answers length. Expected 10 answers"
+    }
+  ],
+  "types": [
+    {
+      "name": "QuizState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u8"
+          },
+          {
+            "name": "is_completed",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+.pizza-quiz {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.connect-wallet, .start-quiz, .check-quiz {
+  text-align: center;
+}
+
+.connect-wallet h1, .start-quiz h1, .check-quiz h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.connect-wallet p, .start-quiz p, .check-quiz p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.wallet-button {
+  background: linear-gradient(45deg, #667eea, #764ba2) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 15px 30px !important;
+  font-size: 1.1rem !important;
+  font-weight: bold !important;
+  color: white !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.wallet-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.start-button, .check-button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  border: none;
+  border-radius: 25px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover, .check-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #fff;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pizza-quiz {
+    margin: 20px;
+    padding: 30px 15px;
+  }
+  
+  .connect-wallet h1, .start-quiz h1, .check-quiz h1 {
+    font-size: 2.5rem;
+  }
+  
+  .connect-wallet p, .start-quiz p, .check-quiz p {
+    font-size: 1rem;
+  }
+}

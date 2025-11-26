@@ -1,0 +1,42 @@
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+. "$HOME/.cargo/env"
+sh -c "$(curl -sSfL https://release.anza.xyz/stable/install)"
+PATH="/home/vscode/.local/share/solana/install/active_release/bin:$PATH"
+cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+avm install latest
+avm use latest
+sudo apt update && sudo apt install -y nodejs npm
+sudo npm install -g yarn
+
+anchor init anchor_project
+
+mkdir -p /home/vscode/.config/solana
+solana-keygen new -o /home/vscode/.config/solana/id.json --no-bip39-passphrase
+```
+Generating a new keypair
+Wrote new keypair to /home/vscode/.config/solana/id.json
+===========================================================================
+pubkey: 9XXutgCkgpC9iPRtgut6yTyC8nuMGnxPu9xtbsee9M9F
+===========================================================================
+```
+anchor test
+
+
+solana config set --url devnet
+solana config get
+solana address
+solana balance
+
+solana-keygen new --outfile target/deploy/anchor_project-keypair.json --force
+solana address -k target/deploy/anchor_project-keypair.json
+BvuNWwf599hrxzQ5YNfAn2j2UhGcb2qkjYMzGakwqxKL
+
+anchor clean
+anchor build
+ls -lh target/deploy/anchor_project.so
+anchor deploy --provider.cluster devnet
+Idl account created: kPJ8n2QtLp6zQxDvbd43gprHpn9scuiCR4HqtT5MGxf
+solana program show BvuNWwf599hrxzQ5YNfAn2j2UhGcb2qkjYMzGakwqxKL --url devnet
+solana account BvuNWwf599hrxzQ5YNfAn2j2UhGcb2qkjYMzGakwqxKL --url devnet --output json
+
+solana logs BvuNWwf599hrxzQ5YNfAn2j2UhGcb2qkjYMzGakwqxKL --url devnet
